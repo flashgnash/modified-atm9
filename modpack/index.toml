@@ -1,14 +1,6 @@
 hash-format = "sha256"
 
 [[files]]
-file = ".envrc"
-hash = "1d26c74fd25a4c3dbb09e029fc609588da499fd4af2a41c88f6316c7f8c54cf1"
-
-[[files]]
-file = ".mixin.out/class/net/minecraft/world/inventory/AbstractFurnaceMenu.class"
-hash = "cbf7fd18489392172b6ab3efaf287eb52ac6b5d211a839868f3668df917be680"
-
-[[files]]
 file = "config/Advancedperipherals/general.toml"
 hash = "6b3115248f87c339c5ae934d586f48df30f039b0254b4c5f187f7fb17e3901dc"
 
