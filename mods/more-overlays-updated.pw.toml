@@ -1,13 +1,13 @@
 name = "More Overlays Updated"
-filename = "moreoverlays-1.24.1-mc1.20.1-forge.jar"
-side = "both"
+filename = "moreoverlays-1.22.7-mc1.20.2.jar"
+side = "client"
 
 [download]
-hash-format = "sha1"
-hash = "f34bd1fde7a4b458493ddf464b4fb94c6108edf7"
-mode = "metadata:curseforge"
+url = "https://cdn.modrinth.com/data/Thy5Pqut/versions/xpC2kCRg/moreoverlays-1.22.7-mc1.20.2.jar"
+hash-format = "sha512"
+hash = "55a1794e99e3cdebf57cffe21114318a2bbf894e79cb5c637cddd337a2fae3ceb8711175642847b9ead78bddaa0de3979e872039b3121fa5a30de15fd37a93ed"
 
 [update]
-[update.curseforge]
-file-id = 6945288
-project-id = 391382
+[update.modrinth]
+mod-id = "Thy5Pqut"
+version = "xpC2kCRg"
