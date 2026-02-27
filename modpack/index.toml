@@ -5986,7 +5986,7 @@ metafile = true
 
 [[files]]
 file = "mods/appleskin.pw.toml"
-hash = "8d0321177fed4a0b48554c40158b43db62f6cdaa768f584ef6a11575dfaa6223"
+hash = "c51928175be6640cc4fc40a9a0b92454f4ad50c4ff93c8db4c802b29389a45a6"
 metafile = true
 
 [[files]]
@@ -6106,7 +6106,7 @@ metafile = true
 
 [[files]]
 file = "mods/betterf3.pw.toml"
-hash = "8341be7376192fe2cbffa3af36060ab8684adb2862efe478d697810cdd979e95"
+hash = "cf702349b89066726963844ff123a21f7a56c7201dde09cdcffa84da62d41e0d"
 metafile = true
 
 [[files]]
@@ -6255,7 +6255,7 @@ metafile = true
 
 [[files]]
 file = "mods/colorful-hearts.pw.toml"
-hash = "a24c070e0d9c218c4d286c10d6a77fb845708a1bbd13ca5aa882453674047cbd"
+hash = "d398f8bed91bb94f6cac8128e7894df7cb9db1016fe3f6bb5f6a402b1af38be7"
 metafile = true
 
 [[files]]
@@ -6295,7 +6295,7 @@ metafile = true
 
 [[files]]
 file = "mods/controlling.pw.toml"
-hash = "1e56f528d8e21b0cf9c52c3d6deea2a4eafa408170b39a070195dbf66617f373"
+hash = "cf8c5f2a139a2571d0d4b8be2b7463255cca721ae4a5741ec71595b7ab530e71"
 metafile = true
 
 [[files]]
@@ -6335,7 +6335,7 @@ metafile = true
 
 [[files]]
 file = "mods/crash-assistant.pw.toml"
-hash = "8c25c9ad25e24859013375855cffe16749d67e66ed6f5ce110b71cca2b7c5fd2"
+hash = "b57627330b4d378cf4ee3f3b28ffcd7214471bd3bd6e9d8d11145587e614f3e6"
 metafile = true
 
 [[files]]
@@ -6435,7 +6435,7 @@ metafile = true
 
 [[files]]
 file = "mods/dark-mode-everywhere.pw.toml"
-hash = "b610ff9e3d52e3fdf8541b3a5f8cad4f51cad3be89134707eaba98434f6bf703"
+hash = "be0becfb273dcb581692822bde4d442912f63cf4f29514ce0a50388f6c639983"
 metafile = true
 
 [[files]]
@@ -6475,7 +6475,7 @@ metafile = true
 
 [[files]]
 file = "mods/ding.pw.toml"
-hash = "6bff28fd3a3fa5e2d3a4ab16ca9db00b86fa5b787117b22c2f7a1a921c09eb34"
+hash = "a3085decb5b25159bed5030fd302769633970ab3d6951afd1cc375eb36c7cff9"
 metafile = true
 
 [[files]]
@@ -6525,7 +6525,7 @@ metafile = true
 
 [[files]]
 file = "mods/dynamiclights-reforged.pw.toml"
-hash = "8f2270a50a633db681826cbfb691e6efdb25e1e0c4702125c13d525b52fe229f"
+hash = "00a06884a4f8854fad85f2456c1d6c53ee09cc5e545a35e41cad24e82907a1ab"
 metafile = true
 
 [[files]]
@@ -6555,7 +6555,7 @@ metafile = true
 
 [[files]]
 file = "mods/embeddium.pw.toml"
-hash = "a1575677daaaf6ea6dac12e5a10073e34025e5ca2c35b6d36ad4a5a0edbc0e82"
+hash = "a74b2d65c286896335b454f61f18be630d0f13767626ebb118584907d1d37112"
 metafile = true
 
 [[files]]
@@ -6920,7 +6920,7 @@ metafile = true
 
 [[files]]
 file = "mods/inventory-essentials.pw.toml"
-hash = "5e79d6436312c412b32282b0ffa8a91fb9a1182e3929f620fafab9683687d3ff"
+hash = "693875e3c02287f0547c0ebc1f27eced6c7a970cef330d226823f899334483cd"
 metafile = true
 
 [[files]]
@@ -7005,12 +7005,12 @@ metafile = true
 
 [[files]]
 file = "mods/just-enough-resources-jer.pw.toml"
-hash = "2f4dd47f2ac99a55c332638116596bbdc38a06ac86336bb662e42c604c3a96e6"
+hash = "3e3a275ab58bd1939d2eebe22095b5db265e33716113ebdee659a78d392b6072"
 metafile = true
 
 [[files]]
 file = "mods/just-zoom.pw.toml"
-hash = "d4a290a9bd2da03a76e63563669d76d9483d00adc77c0d5ba1d72fe4d5eaa69e"
+hash = "1b00016b104368daab12a28d92088fd95c5c33a1ac991f0072ca8870ae89983f"
 metafile = true
 
 [[files]]
@@ -7250,7 +7250,7 @@ metafile = true
 
 [[files]]
 file = "mods/mouse-tweaks.pw.toml"
-hash = "e72f73611904e14d915418f0e3c6cb483cdc600e211375c2eceb393fec5b80f1"
+hash = "c17b9de2050b52f12368cea16836e8c6ac43be9683b2fc4755a9b3d4a60fa67b"
 metafile = true
 
 [[files]]
@@ -7675,7 +7675,7 @@ metafile = true
 
 [[files]]
 file = "mods/sodium-options-api.pw.toml"
-hash = "5240c62752415b5d66d4beffec4fe98c253eba8ebcbb2a5c1097fc3ad3de0b00"
+hash = "bec4fd7f9b90e9040786e31d14bf4af7fb42fce842b9f5acfdd0821c973ecb82"
 metafile = true
 
 [[files]]
@@ -7855,7 +7855,7 @@ metafile = true
 
 [[files]]
 file = "mods/toast-control.pw.toml"
-hash = "1195cdfa90ac4ef4d5ebed8dbca1df990cf58b0a0fe3b9b965ccefa0cfd5a2e3"
+hash = "34ae3ed4e00f9a9d8483b9cb1cb48ea45b43d60e2aaf2f03dc01d85f9b954f93"
 metafile = true
 
 [[files]]
