@@ -1,0 +1,13 @@
+name = "Create: Valkyrien Logistics"
+filename = "valkyrien_logistics-1.20.1-forge-1.1.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "dfa03ab68682606872a7d8dee9acbf83e50e801e"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7379097
+project-id = 1380349

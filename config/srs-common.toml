@@ -1,0 +1,34 @@
+
+#VS Ship Retrieval Service Configuration
+[srs]
+	#Language setting / Spracheinstellung
+	#Available languages:
+	#  de - Deutsch (German)
+	#  en - English
+	#  es - Español (Spanish)
+	#  fr - Français (French)
+	#  it - Italiano (Italian)
+	#  pt - Português (Portuguese)
+	#  ru - Русский (Russian)
+	#  zh - 中文 (Chinese)
+	#  ja - 日本語 (Japanese)
+	#  ko - 한국어 (Korean)
+	#Allowed Values: GERMAN, ENGLISH, SPANISH, FRENCH, ITALIAN, PORTUGUESE, RUSSIAN, CHINESE, JAPANESE, KOREAN
+	language = "ENGLISH"
+	#Permission level required to use the /ships command
+	#0 = All players can use the command
+	#2 = Only OPs can use the command (default)
+	#Valid range: 0-4
+	#Range: 0 ~ 4
+	commandPermissionLevel = 2
+	#Permission level required to use admin actions (teleport, freeze, delete)
+	#0 = All players can use admin actions
+	#2 = Only OPs can use admin actions (default)
+	#Valid range: 0-4
+	#Range: 0 ~ 4
+	adminActionsPermissionLevel = 2
+	#Enable or disable the Ship Namer item
+	#true = Ship Namer item is enabled and functional (default)
+	#false = Ship Namer item is disabled
+	shipNamerEnabled = true
+

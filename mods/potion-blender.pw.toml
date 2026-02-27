@@ -1,0 +1,13 @@
+name = "Potion Blender"
+filename = "Potion-Blender-1.20.1-FORGE-3.1.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "3161a75b7e267eaf1d49f741e1e313b21222bfaa"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6033408
+project-id = 697859

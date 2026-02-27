@@ -1,0 +1,13 @@
+name = "Valkyrien Skies Eureka Integrated Ships"
+filename = "eurekaintergrated-1.0.0-forge-1.20.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "eb0a196902866c22c87437e6529b401b598fce92"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6106017
+project-id = 1174302

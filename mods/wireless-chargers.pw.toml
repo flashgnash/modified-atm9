@@ -1,0 +1,13 @@
+name = "Wireless Chargers"
+filename = "wirelesschargers-1.0.10-forge-mc1.20.4.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "a0291477907c8a8ac90cf884d5dff2962c44afc8"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6919790
+project-id = 510656

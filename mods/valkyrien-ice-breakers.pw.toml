@@ -1,0 +1,13 @@
+name = "Valkyrien Ice Breakers"
+filename = "valkib-1.1.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "214a3d9b2e9b6ce528ab354be90aee4dd4c995f6"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7353583
+project-id = 1371430

@@ -1,0 +1,13 @@
+name = "GrappleVS"
+filename = "grapplevs-1.20.1-1.0.1-VS_2.4_compat.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "02bb4db132b12a924c3fccdadb92bbe96a8df92f"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7383487
+project-id = 1414208

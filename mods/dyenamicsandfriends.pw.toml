@@ -1,0 +1,13 @@
+name = "Dyenamics and Friends"
+filename = "dyenamicsandfriends-1.20.1-1.9.3.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "db59d4a2ca5e98d2aeeb7df72961a9cd50587883"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6755420
+project-id = 709617
