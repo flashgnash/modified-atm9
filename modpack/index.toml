@@ -2493,6 +2493,10 @@ file = "config/l2_configs/l2library-common.toml"
 hash = "5a1791dfc285628c7dc6a6faf4bfe241c6be682bfa44cdba62208fdb0e64ea04"
 
 [[files]]
+file = "config/lithium.properties"
+hash = "faa3d6bb4dad61149cc89a5140633ccbe92bb5521b67127a44c7af7212f69c27"
+
+[[files]]
 file = "config/lithostitched.json"
 hash = "d8a63933ec4757186a594debea59dd35724a0a895fe601b324f96217c28312df"
 
@@ -7485,7 +7489,7 @@ metafile = true
 
 [[files]]
 file = "mods/radium.pw.toml"
-hash = "b29261484fdb56728353d70bbea0af5ff1205ef506b78c42c86f308ed84ecbc1"
+hash = "bbdd40b650286973d44b1931d4b8c4bcc02b02f2c5583545709347503bd13057"
 metafile = true
 
 [[files]]
