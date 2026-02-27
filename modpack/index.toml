@@ -6260,7 +6260,7 @@ metafile = true
 
 [[files]]
 file = "mods/colorwheel.pw.toml"
-hash = "6d78e26778f6c52f912c757672aec21cf55b7924eb68663ff568ba8968a27fd6"
+hash = "5da3a70b5ff11508e80609839ce912f6163932cfedc4d75f49e9f9b017116cd5"
 metafile = true
 
 [[files]]
@@ -6675,7 +6675,7 @@ metafile = true
 
 [[files]]
 file = "mods/farsight.pw.toml"
-hash = "0b4c64ea1972059276a689110c83de55ca01f211320bb9f5c3bff360cf2c6f24"
+hash = "37d3e671ca1a778f75a68615f2a3aaa7b1c74c3becf616a72c15d0b1c1549105"
 metafile = true
 
 [[files]]
@@ -7165,7 +7165,7 @@ metafile = true
 
 [[files]]
 file = "mods/mekalus-oculus-fork-with-fixed-mekanism-mekasuit.pw.toml"
-hash = "58c66715a20423f327e23754c6542c0e4c3f50a485252df4e7e1be820487688c"
+hash = "fa0feb7b7870d9dbbe7bf084754c3315378306e7be2b287287ca58b0f6dc7f90"
 metafile = true
 
 [[files]]
@@ -7355,7 +7355,7 @@ metafile = true
 
 [[files]]
 file = "mods/oculus.pw.toml"
-hash = "5ef885f9912ff6aa73db254b63a3cd22520f06261bc3c38e7c92f449806a9044"
+hash = "200f79b635a087841698c85ac7028f0a1fac2cc4ffae1d59ff3f07a94abfe70e"
 metafile = true
 
 [[files]]
