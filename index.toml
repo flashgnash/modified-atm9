@@ -5829,6 +5829,11 @@ file = "kubejs/startup_scripts/worldgen.js"
 hash = "df8e118b9ecaa22363e0d47c6a40bf546ccc430d19c542a047a74cd4de91be55"
 
 [[files]]
+file = "mods/3dskinlayers.pw.toml"
+hash = "43d95c08f9ff906ca1e16696cc7216a2ec6ed8c08826b2b1c3a6c6727ab4b415"
+metafile = true
+
+[[files]]
 file = "mods/absent-by-design.pw.toml"
 hash = "e02bd19825959a050361567842d8d253d7d4e2d8e128942a41ce381fc0bd8e95"
 metafile = true
@@ -6475,6 +6480,21 @@ metafile = true
 [[files]]
 file = "mods/ding.pw.toml"
 hash = "6bff28fd3a3fa5e2d3a4ab16ca9db00b86fa5b787117b22c2f7a1a921c09eb34"
+metafile = true
+
+[[files]]
+file = "mods/doggy-dilemmas.pw.toml"
+hash = "9a88f6c459cf6c380fc57e6716cc04a34dceaa5050f014f1c7425ef8c226a9b3"
+metafile = true
+
+[[files]]
+file = "mods/doggy-talents-next.pw.toml"
+hash = "b7dd1f8db02d3787ad8a12cc3c844e988c9fdefe9208f6cc21f7eef8944b565f"
+metafile = true
+
+[[files]]
+file = "mods/doggy-talents-nexts-community-skin-expansion.pw.toml"
+hash = "7f8455ebc11faeeaa3311c689c5990b919d51f7821e5c019e387391ac42b1bd6"
 metafile = true
 
 [[files]]
@@ -7465,6 +7485,11 @@ metafile = true
 [[files]]
 file = "mods/quark.pw.toml"
 hash = "4eb683644ee4e38e00b06df946b71ad8fedaa860fcabbd91ec6ceb71c65b8d81"
+metafile = true
+
+[[files]]
+file = "mods/radium.pw.toml"
+hash = "ae4d739bbdb025651a884093de72addac0865525b39e603fb575031a59987763"
 metafile = true
 
 [[files]]

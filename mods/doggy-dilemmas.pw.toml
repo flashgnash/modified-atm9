@@ -1,0 +1,13 @@
+name = "Doggy Dilemmas"
+filename = "doggy_dilemmas-1.0.6-forge-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/7Qgch4rz/versions/I7vWmI3V/doggy_dilemmas-1.0.6-forge-1.20.1.jar"
+hash-format = "sha512"
+hash = "398b315c560e27208f398b6c88a8e79ec2ed3026eb095e53c447ab66042664d4fa4ae13fdf9a2c535b1dbd0d3464189a085425d9c954f6d13ace9505fbe9e8f4"
+
+[update]
+[update.modrinth]
+mod-id = "7Qgch4rz"
+version = "I7vWmI3V"
