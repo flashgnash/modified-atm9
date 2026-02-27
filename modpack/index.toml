@@ -6479,6 +6479,11 @@ hash = "a3085decb5b25159bed5030fd302769633970ab3d6951afd1cc375eb36c7cff9"
 metafile = true
 
 [[files]]
+file = "mods/distanthorizons.pw.toml"
+hash = "47fd33da68d0b13cdffd4124f5bc9cff64caa2878ce7e979ba8092400c2ae1eb"
+metafile = true
+
+[[files]]
 file = "mods/doggy-dilemmas.pw.toml"
 hash = "9a88f6c459cf6c380fc57e6716cc04a34dceaa5050f014f1c7425ef8c226a9b3"
 metafile = true
