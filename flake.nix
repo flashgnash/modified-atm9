@@ -170,6 +170,7 @@
           pkgs.screen
           devScripts.install
           devScripts.update
+          pkgs.packwiz
         ];
       };
     };
