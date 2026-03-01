@@ -93,10 +93,15 @@
 
             environment.systemPackages = [
               (pkgs.writeShellScriptBin "console-${cfg.name}" ''
-                TERM=xterm sudo -u minecraft ${pkgs.screen}/bin/screen -r atm9
+                sudo -u minecraft bash -c '
+                  while true; do
+                    TERM=xterm ${pkgs.screen}/bin/screen -r atm9
+                    echo "Screen session detached or unavailable, retrying in 3 seconds..."
+                    sleep 3
+                  done
+                '
               '')
             ];
-
             users.users.minecraft = {
               isSystemUser = true;
               group = "minecraft";
