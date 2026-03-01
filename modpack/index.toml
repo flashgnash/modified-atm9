@@ -7948,11 +7948,6 @@ hash = "fb4bcf2e0901d38b7f337331bf76b0320e4e3167e3f884f5780e7c5c4eb6a78f"
 metafile = true
 
 [[files]]
-file = "mods/valkyrien-relogs.pw.toml"
-hash = "20a3e23ba7878d9b2c2e5e9b6346ae1e298e8a4cf0d0ccf7673b57bdca46afe1"
-metafile = true
-
-[[files]]
 file = "mods/valkyrien-sails.pw.toml"
 hash = "fb7cbe0b494bc30aad1da34120f0474822ac0186dd1bcd0d53beb149afa0846a"
 metafile = true
