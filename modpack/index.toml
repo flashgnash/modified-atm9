@@ -7228,11 +7228,6 @@ hash = "cd3140db1982e4e1b17c60b71e436fc92c22b1a6ce189e6b8197d1275487679c"
 metafile = true
 
 [[files]]
-file = "mods/modernfix.pw.toml"
-hash = "7172839c89fed8a57db7ea0fca1bf4305e2c76e15f2277a9e66e6c9aaace4374"
-metafile = true
-
-[[files]]
 file = "mods/modonomicon.pw.toml"
 hash = "81da708e6a9add4237562e15bd2be857cfa3908c50951408ab2137ff1c68fbbd"
 metafile = true
