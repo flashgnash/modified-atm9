@@ -6179,11 +6179,6 @@ hash = "528a5c2d50126e1b2906b47449b40a996fce3b4a50b9a0460533f2b7b74f5c99"
 metafile = true
 
 [[files]]
-file = "mods/building-wands.pw.toml"
-hash = "2f57d0c036b982dbd4e07c3a0cf479df6c97c83dd955ccfa292bffc37534ed4b"
-metafile = true
-
-[[files]]
 file = "mods/cable-tiers.pw.toml"
 hash = "a377bba14ea525ae341001546adccc8d1d0b6f254666d38d72f57297b045e8aa"
 metafile = true
@@ -6244,7 +6239,7 @@ metafile = true
 
 [[files]]
 file = "mods/cloth-config.pw.toml"
-hash = "5ac32407263c973bebc5aee61fe000d29d9879020fafb6631581396b64e55dfe"
+hash = "96204145e12506e0625d8b9bfa05aad54e9a62fd511bae39f0d57fcb5e39f4cc"
 metafile = true
 
 [[files]]
