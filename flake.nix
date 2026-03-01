@@ -86,7 +86,7 @@
             ];
             extraCommands = ''
               mkdir -p server
-              cp -r ${self}/. server/
+              cp -r ${self}/server server/
             '';
             config = {
               Entrypoint = [ "${entrypoint}" ];
