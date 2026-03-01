@@ -15,6 +15,18 @@
         let
           cfg = config.services.atm9-server;
           serverDir = "/srv/minecraft/${cfg.name}";
+
+          installScript = pkgs.writeShellScript "atm9-install.sh" ''
+            set -e
+            cd ${serverDir}
+            ${pkgs.wget}/bin/wget https://maven.minecraftforge.net/net/minecraftforge/forge/${cfg.forgeMinecraftVersion}-${cfg.forgeVersion}/forge-${cfg.forgeMinecraftVersion}-${cfg.forgeVersion}-installer.jar
+            ${cfg.javaPackage}/bin/java -jar forge-${cfg.minecraftVersion}-${cfg.forgeVersion}-installer.jar --installServer
+          '';
+          updateScript = pkgs.writeShellScript "atm9-update.sh" ''
+            set -e
+            cd ${serverDir}
+            ${cfg.javaPackage}/bin/java -jar packwiz-installer-bootstrap.jar -g -s server https://raw.githubusercontent.com/flashgnash/modified-atm9/refs/heads/master/modpack/pack.toml
+          '';
         in
         {
           options.services.atm9-server = {
@@ -37,6 +49,15 @@
               type = types.package;
               default = pkgs.jdk17;
             };
+
+            minecraftVersion = mkOption {
+              type = types.str;
+              default = "1.20.1";
+            };
+            forgeVersion = mkOption {
+              type = types.str;
+              default = "47.4.10";
+            };
           };
 
           config = mkIf cfg.enable {
@@ -58,21 +79,19 @@
                 pkgs.bash
                 pkgs.coreutils
                 pkgs.curl
+                pkgs.wget
               ];
 
               preStart = ''
-                # Copy server files into place if not already installed
                 if [ ! -f ${serverDir}/.installed ]; then
                   cp -r ${self}/server/. ${serverDir}/
                   chmod -R u+w ${serverDir}
-                  bash ${serverDir}/install.sh
+                  ${installScript}
                   touch ${serverDir}/.installed
                 fi
 
-                # Always update
-                bash ${serverDir}/update.sh
+                ${updateScript}
 
-                # Link shared config files
                 for file in ops.json whitelist.json banned-players.json banned-ips.json; do
                   if [ -f ${cfg.configPath}/$file ]; then
                     ln -sf ${cfg.configPath}/$file ${serverDir}/$file
@@ -90,7 +109,6 @@
                 WorkingDirectory = serverDir;
                 Restart = "always";
                 RestartSec = "10s";
-                # Give the server time to save on shutdown
                 TimeoutStopSec = "60s";
                 KillSignal = "SIGTERM";
               };
