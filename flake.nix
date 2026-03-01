@@ -18,9 +18,15 @@
         {
           options.services.atm9-server = {
             enable = mkEnableOption "ATM9 server";
+
+            dataPath = mkOption {
+              type = types.str;
+              default = "/srv/atm9-server";
+              description = "Path on host to persist server data";
+            };
             configPath = mkOption {
               type = types.str;
-              default = "/var/lib/atm9-config";
+              default = "/var/lib/minecraft-config";
               description = "Path on host containing ops.json, whitelist.json, etc.";
             };
             port = mkOption {
@@ -39,8 +45,9 @@
                   "${toString cfg.port}:25565/tcp"
                   "${toString cfg.port}:25565/udp"
                 ];
+
                 volumes = [
-                  "atm9-data:/server"
+                  "/srv/atm9-server:/server"
                   "${cfg.configPath}:/config:ro"
                 ];
               };
