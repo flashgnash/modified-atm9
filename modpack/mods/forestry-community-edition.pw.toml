@@ -1,0 +1,13 @@
+name = "Forestry: Community Edition"
+filename = "forestry-1.20.1-2.10.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/2oORTOi2/versions/ZInSOok9/forestry-1.20.1-2.10.1.jar"
+hash-format = "sha1"
+hash = "db661493297366a1150e1179b4ca883a2c514c77"
+
+[update]
+[update.modrinth]
+mod-id = "2oORTOi2"
+version = "ZInSOok9"
