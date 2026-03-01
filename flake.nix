@@ -1,8 +1,6 @@
 {
   description = "ATM9 Minecraft Server";
-
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-
   outputs =
     { self, nixpkgs }:
     {
@@ -20,12 +18,6 @@
         {
           options.services.atm9-server = {
             enable = mkEnableOption "ATM9 server";
-
-            virtualisation.oci-containers.containers.atm9-server = {
-              imageFile = self.packages.x86_64-linux.dockerImage;
-              image = "atm9-server:latest";
-              # ... rest of config
-            };
             configPath = mkOption {
               type = types.str;
               default = "/var/lib/atm9-config";
@@ -36,12 +28,12 @@
               default = 25565;
             };
           };
-
           config = mkIf cfg.enable {
             virtualisation.oci-containers = {
               backend = "docker";
               containers.atm9-server = {
                 image = "atm9-server:latest";
+                imageFile = self.packages.x86_64-linux.dockerImage;
                 autoStart = true;
                 ports = [
                   "${toString cfg.port}:25565/tcp"
@@ -55,32 +47,25 @@
             };
           };
         };
-
       packages.x86_64-linux =
         let
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-
           entrypoint = pkgs.writeShellScript "entrypoint.sh" ''
             set -e
             cd /server
-
             if [ ! -f /server/.installed ]; then
               bash install.sh
               touch /server/.installed
             fi
-
             bash update.sh
-
             for file in ops.json whitelist.json banned-players.json banned-ips.json server.properties; do
               if [ -f /config/$file ]; then
                 rm -f /server/$file
                 ln -sf /config/$file /server/$file
               fi
             done
-
             exec bash run.sh
           '';
-
           dockerImage = pkgs.dockerTools.buildLayeredImage {
             name = "atm9-server";
             tag = "latest";
@@ -92,7 +77,7 @@
             ];
             extraCommands = ''
               mkdir -p server
-              cp -r ${self}/server server/
+              cp -r ${self}/server/. server/
             '';
             config = {
               Entrypoint = [ "${entrypoint}" ];
