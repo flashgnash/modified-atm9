@@ -3,6 +3,39 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
   outputs =
     { self, nixpkgs }:
+    let
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+
+      makeScripts =
+        {
+          javaPackage,
+          forgeMinecraftVersion,
+          forgeVersion,
+          serverDir ? null,
+        }:
+        let
+          dir = if serverDir != null then serverDir else "$(pwd)/server";
+        in
+        {
+          install = pkgs.writeShellScriptBin "atm9-install" ''
+            set -e
+            cd "${dir}"
+            ${pkgs.wget}/bin/wget https://maven.minecraftforge.net/net/minecraftforge/forge/${forgeMinecraftVersion}-${forgeVersion}/forge-${forgeMinecraftVersion}-${forgeVersion}-installer.jar
+            ${javaPackage}/bin/java -jar forge-${forgeMinecraftVersion}-${forgeVersion}-installer.jar --installServer
+          '';
+          update = pkgs.writeShellScriptBin "atm9-update" ''
+            set -e
+            cd "${dir}"
+            ${javaPackage}/bin/java -jar packwiz-installer-bootstrap.jar --bootstrap-no-update -g -s server https://raw.githubusercontent.com/flashgnash/modified-atm9/refs/heads/master/modpack/pack.toml
+          '';
+        };
+
+      devScripts = makeScripts {
+        javaPackage = pkgs.jdk17;
+        forgeMinecraftVersion = "1.20.1";
+        forgeVersion = "47.4.10";
+      };
+    in
     {
       nixosModules.default =
         {
@@ -15,18 +48,10 @@
         let
           cfg = config.services.atm9-server;
           serverDir = "/srv/minecraft/${cfg.name}";
-
-          installScript = pkgs.writeShellScript "atm9-install.sh" ''
-            set -e
-            cd ${serverDir}
-            ${pkgs.wget}/bin/wget https://maven.minecraftforge.net/net/minecraftforge/forge/${cfg.forgeMinecraftVersion}-${cfg.forgeVersion}/forge-${cfg.forgeMinecraftVersion}-${cfg.forgeVersion}-installer.jar
-            ${cfg.javaPackage}/bin/java -jar forge-${cfg.minecraftVersion}-${cfg.forgeVersion}-installer.jar --installServer
-          '';
-          updateScript = pkgs.writeShellScript "atm9-update.sh" ''
-            set -e
-            cd ${serverDir}
-            ${cfg.javaPackage}/bin/java -jar packwiz-installer-bootstrap.jar -g -s server https://raw.githubusercontent.com/flashgnash/modified-atm9/refs/heads/master/modpack/pack.toml
-          '';
+          scripts = makeScripts {
+            inherit (cfg) javaPackage forgeMinecraftVersion forgeVersion;
+            inherit serverDir;
+          };
         in
         {
           options.services.atm9-server = {
@@ -49,8 +74,7 @@
               type = types.package;
               default = pkgs.jdk17;
             };
-
-            minecraftVersion = mkOption {
+            forgeMinecraftVersion = mkOption {
               type = types.str;
               default = "1.20.1";
             };
@@ -73,7 +97,6 @@
               description = "ATM9 Minecraft Server (${cfg.name})";
               wantedBy = [ "multi-user.target" ];
               after = [ "network.target" ];
-
               path = [
                 cfg.javaPackage
                 pkgs.bash
@@ -86,11 +109,11 @@
                 if [ ! -f ${serverDir}/.installed ]; then
                   cp -r ${self}/server/. ${serverDir}/
                   chmod -R u+w ${serverDir}
-                  ${installScript}
+                  ${scripts.install}/bin/atm9-install
                   touch ${serverDir}/.installed
                 fi
 
-                ${updateScript}
+                ${scripts.update}/bin/atm9-update
 
                 for file in ops.json whitelist.json banned-players.json banned-ips.json; do
                   if [ -f ${cfg.configPath}/$file ]; then
@@ -115,5 +138,16 @@
             };
           };
         };
+
+      devShells.x86_64-linux.default = pkgs.mkShell {
+        packages = [
+          pkgs.jdk17
+          pkgs.wget
+          pkgs.curl
+          pkgs.bash
+          devScripts.install
+          devScripts.update
+        ];
+      };
     };
 }
