@@ -82,9 +82,21 @@
               type = types.str;
               default = "47.4.10";
             };
+            ramGb = mkOption {
+              type = types.int;
+              default = 4;
+              description = "RAM allocated to the server in GB";
+            };
           };
 
           config = mkIf cfg.enable {
+
+            environment.systemPackages = [
+              (pkgs.writeShellScriptBin "console-${cfg.name}" ''
+                TERM=xterm sudo -u minecraft ${pkgs.screen}/bin/screen -r atm9
+              '')
+            ];
+
             users.users.minecraft = {
               isSystemUser = true;
               group = "minecraft";
@@ -103,6 +115,7 @@
                 pkgs.coreutils
                 pkgs.curl
                 pkgs.wget
+                pkgs.screen
               ];
 
               preStart = ''
@@ -115,6 +128,11 @@
 
                 ${scripts.update}/bin/atm9-update
 
+                cat > ${serverDir}/user_jvm_args.txt << EOF
+                -Xmx${toString cfg.ramGb}G
+                -Xms${toString cfg.ramGb}G
+                EOF
+
                 for file in ops.json whitelist.json banned-players.json banned-ips.json; do
                   if [ -f ${cfg.configPath}/$file ]; then
                     ln -sf ${cfg.configPath}/$file ${serverDir}/$file
@@ -123,7 +141,11 @@
               '';
 
               script = ''
-                exec bash ${serverDir}/run.sh
+                exec ${pkgs.screen}/bin/screen -DmS atm9 \
+                  ${cfg.javaPackage}/bin/java \
+                  @${serverDir}/user_jvm_args.txt \
+                  @${serverDir}/libraries/net/minecraftforge/forge/${cfg.forgeMinecraftVersion}-${cfg.forgeVersion}/unix_args.txt \
+                  nogui
               '';
 
               serviceConfig = {
@@ -145,6 +167,7 @@
           pkgs.wget
           pkgs.curl
           pkgs.bash
+          pkgs.screen
           devScripts.install
           devScripts.update
         ];
