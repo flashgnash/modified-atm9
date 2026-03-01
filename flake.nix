@@ -20,6 +20,12 @@
         {
           options.services.atm9-server = {
             enable = mkEnableOption "ATM9 server";
+
+            virtualisation.oci-containers.containers.atm9-server = {
+              imageFile = self.packages.x86_64-linux.dockerImage;
+              image = "atm9-server:latest";
+              # ... rest of config
+            };
             configPath = mkOption {
               type = types.str;
               default = "/var/lib/atm9-config";
