@@ -14,89 +14,88 @@
         with lib;
         let
           cfg = config.services.atm9-server;
+          serverDir = "/srv/minecraft/${cfg.name}";
         in
         {
           options.services.atm9-server = {
             enable = mkEnableOption "ATM9 server";
-
-            dataPath = mkOption {
+            name = mkOption {
               type = types.str;
-              default = "/srv/atm9-server";
-              description = "Path on host to persist server data";
+              default = "modified-atm9";
+              description = "Server name, used as directory name under /srv/minecraft/";
             };
             configPath = mkOption {
               type = types.str;
-              default = "/var/lib/minecraft-config";
-              description = "Path on host containing ops.json, whitelist.json, etc.";
+              default = "/srv/minecraft/config";
+              description = "Path containing shared ops.json, whitelist.json, etc.";
             };
             port = mkOption {
               type = types.port;
               default = 25565;
             };
+            javaPackage = mkOption {
+              type = types.package;
+              default = pkgs.jdk17;
+            };
           };
-          config = mkIf cfg.enable {
-            virtualisation.oci-containers = {
-              backend = "docker";
-              containers.atm9-server = {
-                image = "atm9-server:latest";
-                imageFile = self.packages.x86_64-linux.dockerImage;
-                autoStart = true;
-                ports = [
-                  "${toString cfg.port}:25565/tcp"
-                  "${toString cfg.port}:25565/udp"
-                ];
 
-                volumes = [
-                  "/srv/atm9-server:/server"
-                  "${cfg.configPath}:/config:ro"
-                ];
+          config = mkIf cfg.enable {
+            users.users.minecraft = {
+              isSystemUser = true;
+              group = "minecraft";
+              home = serverDir;
+              createHome = true;
+            };
+            users.groups.minecraft = { };
+
+            systemd.services.atm9-server = {
+              description = "ATM9 Minecraft Server (${cfg.name})";
+              wantedBy = [ "multi-user.target" ];
+              after = [ "network.target" ];
+
+              path = [
+                cfg.javaPackage
+                pkgs.bash
+                pkgs.coreutils
+                pkgs.curl
+              ];
+
+              preStart = ''
+                # Copy server files into place if not already installed
+                if [ ! -f ${serverDir}/.installed ]; then
+                  cp -r ${self}/server/. ${serverDir}/
+                  chmod -R u+w ${serverDir}
+                  bash ${serverDir}/install.sh
+                  touch ${serverDir}/.installed
+                fi
+
+                # Always update
+                bash ${serverDir}/update.sh
+
+                # Link shared config files
+                for file in ops.json whitelist.json banned-players.json banned-ips.json; do
+                  if [ -f ${cfg.configPath}/$file ]; then
+                    ln -sf ${cfg.configPath}/$file ${serverDir}/$file
+                  fi
+                done
+              '';
+
+              script = ''
+                exec bash ${serverDir}/run.sh
+              '';
+
+              serviceConfig = {
+                User = "minecraft";
+                Group = "minecraft";
+                WorkingDirectory = serverDir;
+                Restart = "always";
+                RestartSec = "10s";
+                # Give the server time to save on shutdown
+                TimeoutStopSec = "60s";
+                KillSignal = "SIGTERM";
               };
             };
           };
-        };
-      packages.x86_64-linux =
-        let
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          entrypoint = pkgs.writeShellScript "entrypoint.sh" ''
-            set -e
-            cd /server
-            if [ ! -f /server/.installed ]; then
-              bash install.sh
-              touch /server/.installed
-            fi
-            bash update.sh
-            for file in ops.json whitelist.json banned-players.json banned-ips.json server.properties; do
-              if [ -f /config/$file ]; then
-                rm -f /server/$file
-                ln -sf /config/$file /server/$file
-              fi
-            done
-            exec bash run.sh
-          '';
-          dockerImage = pkgs.dockerTools.buildLayeredImage {
-            name = "atm9-server";
-            tag = "latest";
-            contents = [
-              pkgs.jdk17
-              pkgs.bash
-              pkgs.coreutils
-              pkgs.curl
-            ];
-            extraCommands = ''
-              mkdir -p server
-              cp -r ${self}/server/. server/
-            '';
-            config = {
-              Entrypoint = [ "${entrypoint}" ];
-              WorkingDir = "/server";
-              ExposedPorts."25565/tcp" = { };
-              ExposedPorts."25565/udp" = { };
-            };
-          };
-        in
-        {
-          dockerImage = dockerImage;
-          default = dockerImage;
         };
     };
 }
