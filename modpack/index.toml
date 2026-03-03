@@ -6624,12 +6624,7 @@ metafile = true
 
 [[files]]
 file = "mods/euphoria-patches.pw.toml"
-hash = "5b07b8bcefc7a3bb6418003e2f3211643e7cc2fe71fb200514a954c18e475178"
-metafile = true
-
-[[files]]
-file = "mods/eureka-ships.pw.toml"
-hash = "28e381645d0eeaee1a3003288ae44e151d42f8dbd51f49860c058df0153f1fec"
+hash = "d422d844e97db768139218f418e5f86460ec9fb79c4b95d967a870e18b93fcc3"
 metafile = true
 
 [[files]]
